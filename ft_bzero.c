@@ -6,12 +6,12 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:39:02 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/07 15:32:54 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:49:21 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//test
+
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;

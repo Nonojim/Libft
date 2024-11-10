@@ -23,6 +23,8 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
+	if (c == '\0')
+		return ((char *)&s[i]);
 	return (NULL);
 }
 
@@ -30,10 +32,9 @@ char	*ft_strchr(const char *s, int c)
 
 int	main(void)
 {
-	const char str[] = "testerat";
-	int c = 't';
+	const char str[] = "testera\0t";
+	int c = '\0';
 
 	printf("%s", ft_strchr(str, c));
 	return (0);
-}
-*/
+}*/

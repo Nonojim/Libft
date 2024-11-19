@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 13:49:42 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/07 13:55:35 by npederen         ###   ########.fr       */
+/*   Created: 2024/11/19 17:47:29 by npederen          #+#    #+#             */
+/*   Updated: 2024/11/19 17:47:29 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
+    unsigned char *str;
 
-	i = 0;
-	while (s[i])
-		i++;
-	while (i-- > 0)
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-	}
-	return (NULL);
+    str = malloc(size * nmemb);
+    if (!str)
+        return (NULL);
+    ft_memset(str, 0, size * nmemb);
+    return(str);
 }
 
-/*#include <stdio.h>
-int	main(void)
-{
-	const char str[] = "itesterat";
-	int c = 'i';
+/*#include <stdio.h>          
+int main() {
+    
+    int i;
+    int *pointer = (int *) ft_calloc( 5, sizeof(int) );
 
-	printf("[%s]", ft_strrchr(str, c));
-	return (0);
+    i = 0;
+    while (i < 5) {
+        printf( "%d ", pointer[i] );
+        i++;
+    }
+    free(pointer);
+    return 0;
 }*/

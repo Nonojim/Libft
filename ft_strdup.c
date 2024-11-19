@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 16:46:03 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/07 17:23:04 by npederen         ###   ########.fr       */
+/*   Created: 2024/11/19 18:18:28 by npederen          #+#    #+#             */
+/*   Updated: 2024/11/19 18:18:28 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s)
 {
-	size_t			i;
-	unsigned char	*str;
+	char *dest;
+	size_t  size;
+	size_t  i;
 
 	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	size = ft_strlen(s);
+	dest = malloc(sizeof(char) * size + 1);
+	if (!dest)
+		return (NULL);
+	while (i < size)
 	{
-		if (str[i] == (unsigned char)c)
-			return ((void *) &str[i]);
+		dest[i] = s[i];
 		i++;
 	}
-	return (NULL);
+	dest[i] = '\0';
+	return (dest);
 }
 
 /*#include <stdio.h>
 int	main(void)
 {
-	char	data[] = {10, 20, 30, 40, 50};
-	const unsigned int	size = 4;
-	void 	*found = ft_memchr(data, 50, size);
-	printf("resultat %s\n",( found != NULL ? "yep" : "nop" ) );
+	const char * original = "The original string.";
+    char * copy = ft_strdup( original );
+	printf("%s\n", copy);
 	return (0);
-}
-*/
+}*/

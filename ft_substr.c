@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 17:47:29 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/19 17:47:29 by npederen         ###   ########.fr       */
+/*   Created: 2024/11/22 14:58:51 by npederen          #+#    #+#             */
+/*   Updated: 2024/11/22 14:58:51 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*str;
+	char	*str;
+	size_t	i;
 
-	str = malloc(size * nmemb);
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_calloc(1, sizeof(char)));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	str = ft_calloc(len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	ft_memset(str, 0, size * nmemb);
+	while (i < len)
+	{
+		str[i] = s[i + start];
+		i++;
+	}
 	return (str);
 }
 
-/*#include <stdio.h>          
-int main() {
-	
-	int i;
-	int *pointer = (int *) ft_calloc( 5, sizeof(int) );
-
-	i = 0;
-	while (i < 5) {
-		printf( "%d ", pointer[i] );
-		i++;
-	}
-	free(pointer);
-	return 0;
+/*#include <stdio.h>
+int	main(void)
+{
+	printf("%s", ft_substr("Ceci, Est Un Test !", 0, 19));
 }*/

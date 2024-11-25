@@ -6,9 +6,11 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:15:16 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/04 15:18:56 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:20:13 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

@@ -6,9 +6,11 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:04:19 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/04 15:04:27 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:20:16 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

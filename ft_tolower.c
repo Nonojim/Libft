@@ -6,9 +6,11 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:40:09 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/07 13:55:23 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:19:51 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

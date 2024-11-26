@@ -6,39 +6,29 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:31:59 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/26 18:08:22 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:34:14 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <bsd/string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	while (src[j])
-		j++;
+	while (src[i])
+		i++;
 	if (size == 0)
-		return (j);
-	if ((j + 1 <= size))
+		return (i);
+	if ((i + 1 < size))
+		ft_memcpy(dst, src, (i + 1));
+	else if (size != 0)
 	{
-		while (src[i])
-		{
-			dst[i] = src[i];
-			i++;
-		}
+		ft_memcpy(dst, src, (size - 1));
+		dst[size - 1] = 0;
 	}
-	else
-	{
-		while (i++ < (j - 1))
-			dst[i] = src[i];
-	}
-	dst[j] = '\0';
-	return (j);
+	return (i);
 }
 
 /*#include <stdio.h>
@@ -50,5 +40,6 @@ int	main(void)
 	
 	size_t n = 4;
 	printf("%zu et %s\n", ft_strlcpy(dst, src, n), dst);
+	//printf("%zu et %s\n", strlcpy(dst, src, n), dst);
 	return (0);
 }*/

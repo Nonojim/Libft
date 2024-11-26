@@ -6,7 +6,7 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:51:50 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/26 16:24:30 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:12:24 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (nbr > 9)
 	{
-		ft_putnbr(nbr / 10, fd);
+		ft_putnbr_fd(nbr / 10, fd);
 	}
 	c = (nbr % 10 + '0');
 	write(fd, &c, 1);

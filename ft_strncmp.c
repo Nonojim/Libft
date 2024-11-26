@@ -6,7 +6,7 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:59:02 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/07 16:45:14 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:34:36 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,30 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	size_t	i;
+
+	i = 0;
 	if (n == 0)
 		return (0);
 	n -= 1;
-	while (*s1 == *s2 && n && *s1 != '\0')
+	while (((unsigned char)s1[i] || (unsigned char)s2[i]) && n > i)
 	{
-		s1++;
-		s2++;
-		n--;
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	return (*s1 - *s2);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 /*#include <stdio.h>
 #include <string.h>
 int	main(void)
 {
-	unsigned int	n;
 	char	*test1;
 	char	*test2;
 
-	n = 3;
-	test1 = "\nffgfgf";
-	test2 = "|nfffgfff";
+	test1 = "1234";
+	test2 = "1235";
 
 	printf("resultat : |%d|", strncmp(test1, test2, 3));
 	printf(" || resultat strncmp : |%d|", ft_strncmp(test1, test2, 3));

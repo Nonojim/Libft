@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 15:09:10 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/25 19:20:09 by npederen         ###   ########.fr       */
+/*   Created: 2024/11/26 14:44:51 by npederen          #+#    #+#             */
+/*   Updated: 2024/11/26 14:57:01 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-int	ft_isdigit(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
+	write(fd, &c, 1);
 }
+
+/*int main(void)
+{
+	ft_putchar_fd('A', 1);
+	return (0);
+}*/

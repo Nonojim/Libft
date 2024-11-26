@@ -6,13 +6,13 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 16:18:20 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/22 16:18:20 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:28:22 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isfromset(char c, char const *set)
+static int	isfromset(char c, char const *set)
 {
 	size_t	i;
 

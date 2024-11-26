@@ -6,9 +6,11 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:34:06 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/04 15:37:16 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:27:33 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

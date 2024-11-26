@@ -6,13 +6,13 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 20:32:24 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/25 21:02:24 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:26:14 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_len(char	const *s, char c)
+static int	ft_len(char	const *s, char c)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	ft_len(char	const *s, char c)
 	return (i);
 }
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	compteur;
 	int	boule;
@@ -43,7 +43,7 @@ int	count_words(char const *s, char c)
 	return (compteur);
 }
 
-char	*alloc_word(char const*s, char c)
+static char	*alloc_word(char const*s, char c)
 {
 	int		size;
 	int		i;

@@ -1,43 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 20:16:37 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/25 21:01:26 by npederen         ###   ########.fr       */
+/*   Created: 2024/11/26 14:18:22 by npederen          #+#    #+#             */
+/*   Updated: 2024/11/26 14:43:41 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+static int	count(long n)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	str = ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long	nb;
+	int		i;
+
+	nb = n;
+	i = count(nb);
+	str = (char *)malloc(sizeof(char *) * i + 1);
 	if (!str)
 		return (NULL);
-	while (s1[i])
-		str[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		str[j++] = s2[i++];
-	str[j] = 0;
+	str[i--] = '\0';
+	if (nb < 0)
+	{
+		str[0] = '-';
+		nb *= -1;
+	}
+	while (nb > 0)
+	{
+		str[i] = (nb % 10) + '0';
+		nb /= 10;
+		i--;
+	}
 	return (str);
 }
 
 /*#include <stdio.h>
-int main(void)
+int	main(void)
 {
-	char str[] = "je taime";
-	char str1[] = " pas";
-
-	printf("%s", ft_strjoin(str, str1));
+	printf("%s", ft_itoa(-234567));
 	return (0);
 }*/

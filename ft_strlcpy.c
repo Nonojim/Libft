@@ -6,7 +6,7 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:31:59 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/06 19:45:41 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:08:22 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,20 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		j++;
 	if (size == 0)
 		return (j);
-	while (src[i])
+	if ((j + 1 <= size))
 	{
-		if (i == size - 1)
-			break ;
-		dst[i] = src[i];
-		i++;
+		while (src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
 	}
-	while (dst[i])
+	else
 	{
-		dst[i] = '\0';
-		i++;
+		while (i++ < (j - 1))
+			dst[i] = src[i];
 	}
+	dst[j] = '\0';
 	return (j);
 }
 
@@ -46,12 +48,7 @@ int	main(void)
 	char	src[] = "testet";
 	char	dst[] ="test";
 	
-	size_t n = 7;
-
-	//printf("%zu et %s\n", ft_strlcpy(t2, t1, n), t2);
-	printf("temoin %zu et %s", strlcpy(dst, src, n), dst);
-	char	t2[] ="test";
-	char	t1[] = "testet";
-	printf("%zu et %s\n", strlcpy(t2, t1, n), t2);
+	size_t n = 4;
+	printf("%zu et %s\n", ft_strlcpy(dst, src, n), dst);
 	return (0);
 }*/

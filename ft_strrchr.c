@@ -6,7 +6,7 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:49:42 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/07 13:55:35 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:35:20 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 		i++;
-	while (i-- > 0)
+	while (i > 0)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
+		i--;
 	}
 	return (NULL);
 }
 
 /*#include <stdio.h>
+#include <string.h>
 int	main(void)
 {
-	const char str[] = "itesterat";
-	int c = 'i';
+	const char str[] = "itesterati";
+	int c = '\0';
 
-	printf("[%s]", ft_strrchr(str, c));
+	printf("[%s]", strrchr(str, c));
 	return (0);
 }*/

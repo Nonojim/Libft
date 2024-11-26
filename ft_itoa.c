@@ -6,7 +6,7 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:18:22 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/26 14:43:41 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:53:05 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	count(long n)
 	int	i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n *= -1;
@@ -38,10 +40,12 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	i = count(nb);
-	str = (char *)malloc(sizeof(char *) * i + 1);
+	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	str[i--] = '\0';
+	if (nb == 0)
+		str[0] = '0';
 	if (nb < 0)
 	{
 		str[0] = '-';
@@ -59,6 +63,6 @@ char	*ft_itoa(int n)
 /*#include <stdio.h>
 int	main(void)
 {
-	printf("%s", ft_itoa(-234567));
+	printf("%s", ft_itoa(-0));
 	return (0);
 }*/

@@ -6,34 +6,11 @@
 /*   By: npederen <npederen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 19:58:07 by npederen          #+#    #+#             */
-/*   Updated: 2024/11/05 20:17:31 by npederen         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:19:10 by npederen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return (dest);
-}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -55,9 +32,18 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (dstlen + srclen);
 }
+
 /*#include <string.h>
 #include <stdio.h>
 int	main (void)
 {
+	char	dest[20] = "je taime ";
+	char	src [] = "pas";
+	size_t	size = sizeof(dest);
+	size_t	resultat;
+
+	resultat = ft_strlcat(dest, src, size);
+	printf("dest = %s\n", dest);
+	printf("resultat = %zu", resultat);
 	
 }*/

@@ -35,14 +35,14 @@ char	*ft_strnstr(const char *big,	const char *little, size_t len)
 }
 
 /*#include <stdio.h>
-//#include <bsd/string.h> //compile avec -lbsd
+#include <bsd/string.h> //compile avec -lbsd
 
 int	main(void)
 {
-	const char big[] = "hello world";
-	const char little[] = "hello";
-	size_t	len = 10;
-	//printf("temoin :[%s]\n", strnstr(big, little, len));
+	const char big[] = "abcdef";
+	const char little[] = "def";
+	size_t	len = 5;
+	printf("temoin :[%s]\n", strnstr(big, little, len));
 	printf("moi :[%s]", ft_strnstr(big, little, len));
 	return (0);
 }

@@ -19,22 +19,24 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 		return ((char *)&s[i]);
 	return (NULL);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
+#include <string.h>
 int	main(void)
 {
-	const char str[] = "testera\0t";
-	int c = '\0';
+	const char str[] = "teste";
+	int c = 1024;
 
-	printf("%s", ft_strchr(str, c));
+	printf("[%p]\n", ft_strchr(str, c));
+	printf("temoin : [%p]", strchr(str, c));
 	return (0);
-}*/
+}
+*/

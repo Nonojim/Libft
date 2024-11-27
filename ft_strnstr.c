@@ -12,6 +12,29 @@
 
 #include "libft.h"
 
+/*char	*ft_strnstr(const char *big,	const char *little, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	if (little[0] == 0)
+		return ((char *)&big[0]);
+	while (big[i] && i < len)
+	{
+		while (big[i + 1] == little[j] && big[i + j] && i + j < len )
+		{
+			j++;
+			if (little[j] == 0)
+				return ((char *) big + i);
+		}
+		i++;
+		j = 0;
+	}
+	return (NULL);
+}*/
+
 char	*ft_strnstr(const char *big,	const char *little, size_t len)
 {
 	size_t	i;
@@ -26,23 +49,29 @@ char	*ft_strnstr(const char *big,	const char *little, size_t len)
 		if (big[i] == little[j])
 			j++;
 		else
+		{
+			i -= (j - 1);
 			j = 0;
+			if (big[i] == little[0])
+			{
+				j++;
+			}
+		}
 		i++;
 		if (j == ft_strlen(little))
 			return ((char *)&big[i - j]);
 	}
 	return (NULL);
 }
-
 /*#include <stdio.h>
 #include <bsd/string.h> //compile avec -lbsd
 
 int	main(void)
 {
-	const char big[] = "abcdef";
-	const char little[] = "def";
-	size_t	len = 5;
-	printf("temoin :[%s]\n", strnstr(big, little, len));
+	const char big[30] = "aaabcabcd";
+	const char little[] = "aabc";
+	size_t	len = 8;
+	//printf("temoin :[%s]\n", strnstr(big, little, len));
 	printf("moi :[%s]", ft_strnstr(big, little, len));
 	return (0);
 }

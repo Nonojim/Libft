@@ -6,7 +6,7 @@ ft_strjoin.c ft_split.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c
 ft_printf/ft_printf.c ft_printf/ft_count.c ft_printf/ft_count_unsigned.c ft_printf/ft_count_hex.c \
 ft_printf/ft_putnbr_unsigned_fd.c ft_printf/ft_putnbr_hex_fd.c ft_printf/ft_display_c.c ft_printf/ft_display_s.c \
 ft_printf/ft_display_i.c ft_printf/ft_display_psign.c ft_printf/ft_display_u.c ft_printf/ft_display_x.c \
-ft_printf/ft_display_p.c
+ft_printf/ft_display_p.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 #append .o to each .c files in the SRC
 #OBJS := $(SRC:%.c=%.o)
 OBJS = ${SRC:.c=.o}
@@ -24,15 +24,11 @@ CPPFLAGS = -I $(INC_DIR)
 RM = rm -f
 #archive
 ARNAME = ar rcs $(NAME)
-#index generator for the archive so the linkers could find ft and variables
-RANNAME = ranlib $(NAME)
-
 #first rull is always "all" she is calling $(NAME)
 all: $(NAME)
-#NAME
+#NAME  "@"hide in command in terminal
 $(NAME): $(OBJS)
-	$(ARNAME) $(OBJS)
-	$(RANNAME)
+	@$(ARNAME) $(OBJS)
 # "%.o" rule compie .c file into corresponding .o file
 # "%" is a wildcard for "name of the files without extension"
 # $@ = target, here target = .o "$<" = first dependencies here = .c

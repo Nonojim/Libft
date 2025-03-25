@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

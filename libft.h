@@ -14,6 +14,9 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include "ft_printf/ft_printf.h"
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
